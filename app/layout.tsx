@@ -1,17 +1,25 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+// import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "./component/Header/Header";
 import Navbar from "./component/Header/Navbar";
+import FloatingWhatsapp from "./component/FloatingWhatsapp";
+import Footer from "./component/Footer";
+import { Gotu } from "next/font/google";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+// const geistSans = Geist({
+//   variable: "--font-geist-sans",
+//   subsets: ["latin"],
+// });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+// const geistMono = Geist_Mono({
+//   variable: "--font-geist-mono",
+//   subsets: ["latin"],
+// });
+const gotu = Gotu({
+  variable: "--font-gotu",
   subsets: ["latin"],
+  weight: "400", // Gotu only has 400
 });
 
 export const metadata: Metadata = {
@@ -26,12 +34,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
+      {/* <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      > */}
+      <body
+        className={`${gotu.variable} font-sans antialiased`}
       >
         <Header />
         <Navbar />
         {children}
+        <Footer />
+        <FloatingWhatsapp />
       </body>
     </html>
   );

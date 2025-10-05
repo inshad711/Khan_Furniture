@@ -331,6 +331,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { ChevronDown } from 'lucide-react';
 
 interface SubItem {
     name: string;
@@ -516,12 +517,21 @@ const Navbar: React.FC = () => {
                                 key={item.name}
                                 className={`relative group ${item.className || ''}`}
                             >
-                                <Link
+                                {/* <Link
                                     href={item.href}
                                     className="text-gray-700 hover:text-gray-900 py-2 block"
                                 >
                                     {item.name}
+                                    <ChevronDown />
+                                </Link> */}
+                                <Link
+                                    href={item.href}
+                                    className="text-gray-700 hover:text-gray-900 py-2 flex items-center space-x-1"
+                                >
+                                    <span>{item.name}</span>
+                                    <ChevronDown />
                                 </Link>
+
                                 {item.subItems.length > 0 && (
                                     <div className="absolute top-full left-0 w-96 bg-white shadow-lg border border-gray-200 hidden group-hover:block z-10">
                                         <div className="p-4 grid grid-cols-3 gap-4">
